@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NewsSnap</title>
+  </head>
+  <body>
+    {% block content %}
+    <header class="showcase" style="overflow: hidden;">
+      <img style="object-fit: fill; position: absolute; z-index: -1; overflow: hidden;background-position: center;background-size: contain;" src="https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG5ld3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="News Image">
+        <div class="container">
+          <div class="text-content">
+              <p class="sports-category">{{ get_top_news.site_name }}</p>
+              <h1>{{ get_top_news.headline }}</h1>
+              <p>
+                  {{ get_top_news.description }}
+              </p>
+              <a href="{{ get_hot_news.url }}">Read More</a>
+          </div>
+      </div>
+      
+  </header>
+  <section>
+    <div class="ui fluid container">
+        <h1 class="editor-h1 ui header" style="margin-top: 10px;">Editor Picks</h1>
+        <div class="articles">
+            <div class="ui two column relaxed grid">
+              <div class="row">
+                  {% for article in news_entertainment_article %}
+                    <div class="column ui raised very padded text container segment">
+                      <a href="{{ article.url }}" class="card">
+                        <img src="{{ article.image }}" alt="Image" />
+                        <article>
+                            <p class="entertainment-category">{{ article.category }}</p>
+                            <h1 class="ui header"><a href="{{ article.url }}">{{ article.headline }} - {{ article.site_name }}</a></h1>
+                            <p>
+                                {{ article.description }}
+                            </p>
+                        </article>
+                    </a>
+                    </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="ui two column relaxed grid">
+              <div class="row">
+                  {% for article in news_sports_article %}
+                    <div class="column ui raised very padded text container segment">
+                      <a href="{{ article.url }}" class="card">
+                        <img src="{{ article.image }}" alt="Image" />
+                        <article>
+                            <p class="sports-category">{{ article.category }}</p>
+                            <h1 class="ui header"><a href="{{ article.url }}">{{ article.headline }} - {{ article.site_name }}</a></h1>
+                            <p>
+                                {{ article.description }}
+                            </p>
+                        </article>
+                    </a>
+                    </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="ui two column relaxed grid">
+              <div class="row">
+                  {% for article in news_business_article %}
+                    <div class="column ui raised very padded text container segment">
+                      <a href="{{ article.url }}" class="card">
+                        <img src="{{ article.image }}" alt="Image" />
+                        <article>
+                            <p class="business-category">{{ article.category }}</p>
+                            <h1 class="ui header"><a href="{{ article.url }}">{{ article.headline }} - {{ article.site_name }}</a></h1>
+                            <p>
+                                {{ article.description }}
+                            </p>
+                        </article>
+                    </a>
+                    </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="ui two column relaxed grid">
+              <div class="row">
+                  {% for article in news_technology_article %}
+                    <div class="column ui raised very padded text container segment">
+                      <a href="{{ article.url }}" class="card">
+                        <img src="{{ article.image }}" alt="Image" />
+                        <article>
+                            <p class="technology-category">{{ article.category }}</p>
+                            <h1 class="ui header"><a href="{{ article.url }}">{{ article.headline }} - {{ article.site_name }}</a></h1>
+                            <p>
+                                {{ article.description }}
+                            </p>
+                        </article>
+                    </a>
+                    </div>
+                {% endfor %}
+              </div>
+              <div class="row">
+                  {% for article in news_science_article %}
+                    <div class="column ui raised very padded text container segment">
+                      <a href="{{ article.url }}" class="card">
+                        <img src="{{ article.image }}" alt="Image" />
+                        <article>
+                            <p class="science-category">{{ article.category }}</p>
+                            <h1 class="ui header"><a href="{{ article.url }}">{{ article.headline }} - {{ article.site_name }}</a></h1>
+                            <p>
+                                {{ article.description }}
+                            </p>
+                        </article>
+                    </a>
+                    </div>
+                {% endfor %}
+        </div>
+        </div>
+              
+
+            
+    {% endblock %}
+    
+    {% block script %} {% endblock %}
+  </body>
+</html>

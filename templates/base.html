@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css" integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/navbar.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script src="https://kit.fontawesome.com/eaa4609b2f.js" crossorigin="anonymous"></script>
+
+    <title>News Snap</title>
+  </head>
+  <body style="background: white;">
+    <div class="preloader">
+      <div></div>
+      <div style="overflow: hidden; height: max-content;">Loading Content!</div>
+  </div>
+
+    <nav class="navbar">
+      <div class="logo"><h1>NewsSnap</h1></div>
+      <div class="push-left">
+        <button id="menu-toggler" data-class="menu-active" class="hamburger">
+          <span class="hamburger-line hamburger-line-top"></span>
+          <span class="hamburger-line hamburger-line-middle"></span>
+          <span class="hamburger-line hamburger-line-bottom"></span>
+        </button>
+
+    <!--  Menu compatible with wp_nav_menu  -->
+    <ul id="primary-menu" class="menu nav-menu">
+      <li class="menu-item current-menu-item"><a class="nav__link"  href="{% url 'index' %}">Home</a></li>
+      <li class="menu-item"><a class="nav__link" href="{% url 'business' %}">Business</a></li>
+      <li class="menu-item"><a class="nav__link" href="{% url 'entertainment' %}">Entertainment</a></li>
+      <li class="menu-item"><a class="nav__link" href="{% url 'health' %}">Health</a></li>
+      <li class="menu-item"><a class="nav__link" href="{% url 'science' %}">Science</a></li>
+      <li class="menu-item"><a class="nav__link" href="{% url 'sports' %}">Sports</a></li>
+      <li class="menu-item"><a class="nav__link" href="{% url 'technology' %}">Technology</a></li>
+      <li class="menu-item"><a class="nav__link" href="{% url 'summarizer' %}">Summarizer</a></li>
+    </ul>
+  </div>
+</nav>
+  <div class="ui fluid container" style="margin-top: 10px;">
+    {% block content %} {% endblock %}
+  </div>
+  <footer style="height: 280px; color: white; width: 100%;">
+    <div class="ui fluid container">
+        <div class="footer" style="width: 100%;">
+            <article style="width: 100%;">
+                <div class="logo">
+                    <i class="fas fa-globe fa-2x"></i>
+                    <h2 style="color: white;">News<span>Snap</span></h2>
+                </div>
+            </article>
+        </div>
+        <div class="copyright">
+            <p style="color:white">Copyright &copy; 2023, All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+      integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js" integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      $(document).ready(function() {
+      // Toggle menu on click
+      $("#menu-toggler").click(function() {
+        toggleBodyClass("menu-active");
+      });
+
+      function toggleBodyClass(className) {
+        document.body.classList.toggle(className);
+      }
+
+    });
+    const preloader = document.querySelector(".preloader");
+
+    window.addEventListener('load', () => {
+        preloader.remove();
+    });
+    </script>
+    {% block script %} {% endblock %}
+  </body>
+</html>

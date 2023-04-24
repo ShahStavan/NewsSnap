@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health</title>
+  </head>
+  <body>
+    {% block content %}
+    <div class="container" style="display: flex; justify-content: center; flex-direction: row; align-items: center;">
+    <section class="article-page" style="height: auto;">
+      <div class="content" style="height: auto;display: flex; justify-content: center; flex-direction: column; align-items: center;">
+        
+        <article style="background-color: white;">
+            {% for article in articles_list %}
+            <div class="news ui raised very padded text container segment">
+              <img src="{{ article.image }}" alt="" />
+              <h2><a href="{{ article.url }}">{{ article.headline }}</a></h2>
+              <div>
+                  <p class="entertainment-category">{{ article.category }}</p>
+              </div>
+              <p>
+                  {{ article.description }}
+              </p>
+              <p>
+                {{ article.content }}
+              </p>
+              <p>
+                <div class="s" style="width: 100%; height: max-content; display: flex; justify-content: center; align-items: center;">
+                  <div class="ui raised very padded text container segment" >
+                    Summary:
+                    {{ article.summary }}
+                  </div> </div>
+                  
+                  
+              </p>
+            </div>
+            {% endfor %} 
+          </article>
+      </div>
+          <article>
+              <h3>CATEGORIES</h3>
+              <ul>
+                <li class="menu-item"><a class="nav__link" href="{% url 'business' %}">Business</a></li>
+                <li class="menu-item"><a class="nav__link" href="{% url 'entertainment' %}">Entertainment</a></li>
+                <li class="menu-item"><a class="nav__link" href="{% url 'health' %}">Health</a></li>
+                <li class="menu-item"><a class="nav__link" href="{% url 'science' %}">Science</a></li>
+                <li class="menu-item"><a class="nav__link" href="{% url 'sports' %}">Sports</a></li>
+                <li class="menu-item"><a class="nav__link" href="{% url 'technology' %}">Technology</a></li>
+                <li class="menu-item"><a class="nav__link" href="{% url 'summarizer' %}">Summarizer</a></li>
+              </ul>
+          </article>
+      </section>
+  </div>
+    {% endblock %}
+  </body>
+</html>
