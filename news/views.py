@@ -278,7 +278,7 @@ def all_category_articles(category):
                 content = article.text
 
                 if content != None:
-                    article_dict['content'] = content[:500]
+                    article_dict['content'] = content
                     article_dict['summary'] = summarizer_creator(content)
                 else:
                     article_dict['content'] = "Content not available"

@@ -6,25 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Science</title>
+    <style>
+      .nav__link a:hover{
+        color: #000;
+        background-color: #fff;
+      }
+    </style>
   </head>
   <body>
     {% block content %}
-    <div class="container" style="display: flex; justify-content: center; flex-direction: row; align-items: center;">
+    <div class="ui fluid container" style="display: flex; justify-content: center; flex-direction: row; align-items: center; width: 100%;">
     <section class="article-page" style="height: auto;">
       <div class="content" style="height: auto;display: flex; justify-content: center; flex-direction: column; align-items: center;">
         
         <article style="background-color: white;">
             {% for article in articles_list %}
-            <div class="news ui raised very padded text container segment">
-              <img src="{{ article.image }}" alt="" />
-              <h2><a href="{{ article.url }}">{{ article.headline }}</a></h2>
+            <div class="news ui raised very padded text container segment" id="article_content">
+              <img src="{{ article.image }}" alt="Image"  style="border-radius: 5px;animation: imageOverScale 1s ease-in-out;"/>
+              <h2><a href="{{ article.url }}" style="font-size: 1.6rem;margin: 1rem 0rem;letter-spacing: 1px;font-family: 'Raleway', sans-serif;font-weight: 800;animation: slideInFromTop 1s ease-in-out;">{{ article.headline }}</a></h2>
               <div>
                   <p class="entertainment-category">{{ article.category }}</p>
               </div>
-              <p>
+              <p style="font-size: 1.1rem;letter-spacing: 1px;font-family: 'Inter', sans-serif;font-weight: 400;text-align: justify;">
+                  Description:
                   {{ article.description }}
               </p>
-              <p>
+              <p style="font-size: 0.9rem;letter-spacing: 1px;font-family: 'Inter', sans-serif;font-weight: 400;text-align: justify;">
+                  Content:
                 {{ article.content }}
               </p>
               <p>
@@ -43,13 +51,13 @@
           <article>
               <h3>CATEGORIES</h3>
               <ul>
-                <li class="menu-item"><a class="nav__link" href="{% url 'business' %}">Business</a></li>
-                <li class="menu-item"><a class="nav__link" href="{% url 'entertainment' %}">Entertainment</a></li>
-                <li class="menu-item"><a class="nav__link" href="{% url 'health' %}">Health</a></li>
-                <li class="menu-item"><a class="nav__link" href="{% url 'science' %}">Science</a></li>
-                <li class="menu-item"><a class="nav__link" href="{% url 'sports' %}">Sports</a></li>
-                <li class="menu-item"><a class="nav__link" href="{% url 'technology' %}">Technology</a></li>
-                <li class="menu-item"><a class="nav__link" href="{% url 'summarizer' %}">Summarizer</a></li>
+                <li class="menu-item"><a class="nav__link" href="{% url 'business' %}" style="text-transform: uppercase;font-weight: 700;font-size: 1.2rem;color: #262424;letter-spacing: 1px;padding: 4px 16px;border: 1px solid #000;box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); background:none;">Business</a></li>
+                <li class="menu-item"><a class="nav__link" href="{% url 'entertainment' %}" style="text-transform: uppercase;font-weight: 700;font-size: 1.2rem;color: #262424;letter-spacing: 1px;padding: 4px 16px;border: 1px solid #000;box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); background:none;">Entertainment</a></li>
+                <li class="menu-item"><a class="nav__link" href="{% url 'health' %}" style="text-transform: uppercase;font-weight: 700;font-size: 1.2rem;color: #262424;letter-spacing: 1px;padding: 4px 16px;border: 1px solid #000;box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); background:none;">Health</a></li>
+                <li class="menu-item"><a class="nav__link" href="{% url 'science' %}" style="text-transform: uppercase;font-weight: 700;font-size: 1.2rem;color: #262424;letter-spacing: 1px;padding: 4px 16px;border: 1px solid #000;box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); background:none;">Science</a></li>
+                <li class="menu-item"><a class="nav__link" href="{% url 'sports' %}" style="text-transform: uppercase;font-weight: 700;font-size: 1.2rem;color: #262424;letter-spacing: 1px;padding: 4px 16px;border: 1px solid #000;box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); background:none;">Sports</a></li>
+                <li class="menu-item"><a class="nav__link" href="{% url 'technology' %}" style="text-transform: uppercase;font-weight: 700;font-size: 1.2rem;color: #262424;letter-spacing: 1px;padding: 4px 16px;border: 1px solid #000;box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); background:none;">Technology</a></li>
+                <li class="menu-item"><a class="nav__link" href="{% url 'summarizer' %}" style="text-transform: uppercase;font-weight: 700;font-size: 1.2rem;color: #262424;letter-spacing: 1px;padding: 4px 16px;border: 1px solid #000;box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); background:none;">Summarizer</a></li>
               </ul>
           </article>
       </section>
